@@ -3,8 +3,15 @@ import java.util.ArrayList;
 
 public class Resolucion {
 	
+	ArrayList<Equipo> equipos;
+	Persona[] personas;
+	
+	public Resolucion(Persona[] personas) {
+		this.equipos = new ArrayList<Equipo>();
+		this.personas = personas;
+	}
+	
 	public Equipo crearEquipos(Persona[] personas) {
-		ArrayList<Equipo> equipos = new ArrayList<Equipo>();
 		char primerRespuesta;
 		int cantidadRespuestasIguales;
 		int colaboradoresPorEquipo;
@@ -14,14 +21,14 @@ public class Resolucion {
 			primerRespuesta = personas[i].getPreguntas()[0];
 			for (int j = i + 1; j < personas.length; j++) { //En este vamos a comparar el colaborador del for de afuera con los demás.
 				if(personas[j].getPreguntas()[0] == primerRespuesta)
-					ca
+					colaboradoresPorEquipo++;
 			}
 		}
 		
 		return null;
 	}
 	
-	public Equipo equipoMaximaAfinidad(Equipo[] equipos) {
+	public Equipo equipoMaximaAfinidad() {
 		return null;
 	}
 
