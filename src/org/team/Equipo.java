@@ -3,18 +3,11 @@ import java.util.ArrayList;
 
 public class Equipo {
 	
-	private int afinidad;
 	private int respuestasIguales;
-	private int cantidadColaboradores;
+	private ArrayList<Persona> colaboradores;
 	
-	public Equipo(int cantidadColaboradores, int respuestasIguales) {
-		this.cantidadColaboradores = cantidadColaboradores;
-		this.respuestasIguales = respuestasIguales;
-		this.afinidad = this.cantidadColaboradores * this.respuestasIguales * this.respuestasIguales;
-	}
-
-	public int getAfinidad() {
-		return afinidad;
+	public Equipo() {
+		colaboradores = new ArrayList<Persona>();
 	}
 	
 	public String getRespuestas() {
@@ -24,9 +17,17 @@ public class Equipo {
 			respuesta += opcionesElegidas[i];
 		return respuesta;
 	}
+	
+	public void agregarColaborador(Persona p) {
+		this.colaboradores.add(p);
+	}
+	
+	public void setRespuestasIguales(int respuestasIguales) {
+		this.respuestasIguales = respuestasIguales;
+	}
 
-	public void setAfinidad(int afinidad) {
-		this.afinidad = afinidad;
+	public int getAfinidad() {
+		return colaboradores.size() * this.respuestasIguales * this.respuestasIguales;
 	}
 
 }
