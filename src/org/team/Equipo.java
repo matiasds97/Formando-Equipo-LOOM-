@@ -22,12 +22,20 @@ public class Equipo {
 		this.colaboradores.add(p);
 	}
 	
+	public void removerColaborador(Persona p) {
+		this.colaboradores.remove(p);
+	}
+	
 	public void setRespuestasIguales(int respuestasIguales) {
 		this.respuestasIguales = respuestasIguales;
 	}
 
 	public int getAfinidad() {
 		return colaboradores.size() * this.respuestasIguales * this.respuestasIguales;
+	}
+	
+	public void vaciarEquipo() {
+		this.colaboradores.clear();
 	}
 
 }

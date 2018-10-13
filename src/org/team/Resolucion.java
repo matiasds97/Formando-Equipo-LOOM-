@@ -4,32 +4,41 @@ import java.util.ArrayList;
 public class Resolucion {
 	
 	ArrayList<Equipo> equipos;
-	Persona[] personas;
+	Persona[] persona;
 	
 	public Resolucion(Persona[] personas) {
 		this.equipos = new ArrayList<Equipo>();
-		this.personas = personas;
+		this.persona = personas;
 	}
 	
-	public Equipo crearEquipos(Persona[] personas) {
-		char primerRespuesta;
-		int cantidadRespuestasIguales;
-		int colaboradoresPorEquipo;
-		for(int i = 0; i < personas.length - 1; i++) { //En este for vamos recorriendo colaborador a colaborador
-			colaboradoresPorEquipo = 0;
-			cantidadRespuestasIguales = 0;
-			primerRespuesta = personas[i].getPreguntas()[0];
-			for (int j = i + 1; j < personas.length; j++) { //En este vamos a comparar el colaborador del for de afuera con los demás.
-				if(personas[j].getPreguntas()[0] == primerRespuesta)
-					colaboradoresPorEquipo++;
+	public void crearEquipos() {
+		int i, j, k;
+		int cantPreguntas = persona[0].getSumaValores().length;
+		Equipo equipo = new Equipo();
+		equipos = new ArrayList<Equipo>();
+		for(i = 0; i < cantPreguntas - 1; i++) {
+			for (Persona p : persona) //Agrega a todos los colaboradores al equipo.
+				equipo.agregarColaborador(p);
+			for(j = 0; j < cantPreguntas; j++) {
+				for(k = i + 1; k < persona.length; k++) {
+					if(persona[i].getSumaValores()[j] != persona[k].getSumaValores()[j])
+						equipo.removerColaborador(persona[k]);
+				}
 			}
+			equipos.add(equipo);
+			equipo = new Equipo();
 		}
-		
-		return null;
 	}
 	
 	public Equipo equipoMaximaAfinidad() {
-		return null;
+		Equipo equipoMax;
+		equipoMax = equipos.remove(0);
+		for(int i = 0; i < equipos.size(); i++) {
+			Equipo auxiliar = equipos.remove(0);
+			if(equipoMax.getAfinidad() < auxiliar.getAfinidad())
+				equipoMax = auxiliar;
+		}
+		return equipoMax;
 	}
 
 }

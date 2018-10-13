@@ -22,4 +22,8 @@ public class Persona {
 		return preguntas;
 	}
 	
+	public int[] getSumaValores() {
+		return this.sumaValores;
+	}
+	
 }
