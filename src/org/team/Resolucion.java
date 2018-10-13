@@ -11,8 +11,6 @@ public class Resolucion {
 		this.persona = personas;
 	}
 	
-	//Comentario random
-	
 	public void crearEquipos() {
 		int i, j, k;
 		int cantPreguntas = persona[0].getSumaValores().length;

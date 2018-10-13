@@ -14,17 +14,18 @@ public class ArchivoEquipo {
 		int cantidadColaboradores;
 		File archivo = new File("equipo.in");
 		Scanner sc = new Scanner(archivo);
-		sc.useDelimiter("");
+		
 		cantidadPreguntas = sc.nextInt();
 		cantidadColaboradores = sc.nextInt();
+		
 		preguntas = new char[cantidadPreguntas];
 		personas = new Persona[cantidadColaboradores];
+		
 		for(int i = 0 ; i < cantidadColaboradores; i++) {
-			String stringu = sc.next();
-			for(int j = 0; j < preguntas.length; j++) {
+			String stringu = sc.nextLine();
+			for(int j = 0; j < stringu.length(); j++) 
 				preguntas[j] = stringu.charAt(j);
-			}
-			System.out.println("HOLA");
+			
 			personas[i] = new Persona(preguntas);
 		}
 		
