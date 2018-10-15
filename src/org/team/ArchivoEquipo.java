@@ -3,13 +3,14 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ArchivoEquipo {
 	
-	public Persona[] leerArchivo() throws IOException {
+	public Resolucion leerArchivo() throws IOException {
 		char[] preguntas;
-		Persona[] personas;
+		ArrayList<Persona> personas = new ArrayList<Persona>();
 		int cantidadPreguntas;
 		int cantidadColaboradores;
 		File archivo = new File("equipo.in");
@@ -18,19 +19,15 @@ public class ArchivoEquipo {
 		cantidadPreguntas = sc.nextInt();
 		cantidadColaboradores = sc.nextInt();
 		
-		preguntas = new char[cantidadPreguntas];
-		personas = new Persona[cantidadColaboradores];
-		
 		for(int i = 0 ; i < cantidadColaboradores; i++) {
+			preguntas = new char[cantidadPreguntas];
 			String stringu = sc.nextLine();
-			for(int j = 0; j < stringu.length(); j++) 
+			for(int j = 0; j < stringu.length(); j++)
 				preguntas[j] = stringu.charAt(j);
-			
-			personas[i] = new Persona(preguntas);
+			personas.add(new Persona(preguntas));
 		}
-		
 		sc.close();
-		return personas;
+		return new Resolucion(personas);
 	}
 	
 	public void escribirArchivo(Equipo equipo) throws IOException {
