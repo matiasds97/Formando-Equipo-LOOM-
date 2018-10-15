@@ -1,5 +1,7 @@
 package org.team;
 
+import java.util.Arrays;
+
 public class Persona {
 	private char[] preguntas;
 	private int[] sumaValores;
@@ -15,5 +17,12 @@ public class Persona {
 	public int[] getSumaValores() {
 		return this.sumaValores;
 	}
+
+	@Override
+	public String toString() {
+		return "Persona [preguntas=" + Arrays.toString(preguntas) + "]";
+	}
+	
+	
 	
 }

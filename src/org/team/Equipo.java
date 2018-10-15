@@ -12,9 +12,11 @@ public class Equipo {
 	
 	public String getRespuestas() {
 		String respuesta = "";
+		Persona p = colaboradores.get(0);
 		char[] opcionesElegidas = new char[respuestasIguales];
 		for(int i = 0; i < this.respuestasIguales; i++)
-			respuesta += opcionesElegidas[i];
+			respuesta += p.getPreguntas()[i];
+		System.out.println(respuesta);
 		return respuesta;
 	}
 	
