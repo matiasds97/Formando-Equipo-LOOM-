@@ -71,6 +71,8 @@ public class Resolucion {
 
 	public Equipo equipoMaximaAfinidad() {
 		Equipo equipoMax;
+		if(equipos.size() == 0)
+			return null;
 		equipoMax = equipos.remove(0);
 		for (int i = 0; i < equipos.size(); i++) {
 			Equipo auxiliar = equipos.remove(0);

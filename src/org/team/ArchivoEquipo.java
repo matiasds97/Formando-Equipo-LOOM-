@@ -33,18 +33,16 @@ public class ArchivoEquipo {
 	public void escribirArchivo(Equipo equipo) throws IOException {
 		FileWriter fw = new FileWriter("equipo.out");
 		PrintWriter pw = new PrintWriter(fw);
-		int x = equipo.getAfinidad();
-		if (x != 0)
-			pw.println(equipo.getAfinidad());
-		else
+		if(equipo == null) {
 			pw.println("No hay equipos con afinidad.");
+			fw.close();
+			pw.close();
+			return;
+		}
+		pw.println(equipo.getAfinidad());
 		String s = equipo.getRespuestas();
-		if (s.isEmpty())
-			pw.print("No hay respuestas para mostrar.");
-		else
-			pw.print(s);
+		pw.print(s);
 		pw.close();
 		fw.close();
 	}
-
 }
