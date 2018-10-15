@@ -12,11 +12,6 @@ public class Resolucion {
 		this.persona = personas;
 	}
 
-	public Resolucion() { // BORRAR LUEGO
-		this.equipos = new ArrayList<Equipo>();
-		this.persona = null;
-	}
-
 	public void crearEquipos() {
 		// Por cada chabon, comparar a las personas a ver con cual tiene maxima
 		// afinidad, es decir

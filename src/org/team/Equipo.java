@@ -16,7 +16,6 @@ public class Equipo {
 		char[] opcionesElegidas = new char[respuestasIguales];
 		for(int i = 0; i < this.respuestasIguales; i++)
 			respuesta += p.getPreguntas()[i];
-		System.out.println(respuesta);
 		return respuesta;
 	}
 	
